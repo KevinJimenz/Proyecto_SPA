@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+
+    if ($_SESSION == true)
+    {
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -54,3 +61,9 @@
     <script type="module" src="main.js"></script>
 </body>
 </html>
+<?php 
+    }
+    else {
+        header('Location: http://localhost/proyecto_Spa/');
+    }
+?>

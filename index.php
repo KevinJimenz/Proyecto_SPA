@@ -22,10 +22,6 @@
                 <li class="nav-item">
                     <a class="nav-link link-dark fw-bold text-center fs-5" href="../Inicio/">Inicio</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link link-dark link-opacity-50 link-opacity-100-hover text-center fs-5"
-                        href="">Productos</a>
-                </li>
             </ul>
         </div>
         <div class="col-12 col-md-auto ms-auto align-content-center mt-2 mt-md-0">

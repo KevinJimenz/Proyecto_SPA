@@ -1,3 +1,12 @@
+<?php 
+    session_start();
+
+    if ($_SESSION == true )
+    {
+
+
+    
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -31,11 +40,11 @@
                                     <div class="dropdown">
                                         <button class="btn btn-lg bg-body-secondary dropdown-toggle" type="button"
                                             id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="bi bi-person-circle me-1"></i> Kevin
+                                            <i class="bi bi-person-circle me-1"></i> User
                                         </button>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <li>
-                                                    <a class="dropdown-item" href="logout.php">
+                                                    <a class="dropdown-item" href="http://localhost/proyecto_Spa/Front/Views/CerrarSesion/logout.php">
                                                         <i class="bi bi-box-arrow-right me-1"></i> Cerrar sesión
                                                     </a>
                                                 </li>
@@ -114,3 +123,10 @@
 </body>
 
 </html>
+
+<?php 
+    }
+    else{
+        header('Location: http://localhost/proyecto_Spa/');
+    }
+?>

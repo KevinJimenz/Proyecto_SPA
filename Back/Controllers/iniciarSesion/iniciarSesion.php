@@ -19,19 +19,22 @@
             $bd_password = $conexion -> ConsultaCompleja($consultaPassword);
             if ( md5($pass) === $bd_password[0]['password'] )
             {
+                session_start();
+                $_SESSION['acceso'] = true;
                 $consulta = "SELECT id as id, CONCAT(nombre, ' ' , apellido) as nombre, id_Rol as rol FROM usuarios WHERE correo = '".$email."' and password = '".md5($pass)."' ;" ;
                 $stmt = $conexion ->ConsultaCompleja($consulta) ;
                 $mensaje = array (
                     'message' => 'Existe',
-                    'data' => $stmt
+                    'data' => $stmt,
+                    'route' => '/Front/Views/Access/Admin/Graficos'
                 );
                 $datos = json_encode($mensaje);
                 echo $datos;
             }
             else {
                 $mensaje = array (
-                    'message' => 'Incorrect Password',
-                    'data' =>  $pass
+                    'title' => 'Error',
+                    'message' =>  'La contraseña es incorrecta'
                 );
                 $datos = json_encode($mensaje);
                 echo $datos;
