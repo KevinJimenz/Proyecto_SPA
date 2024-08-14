@@ -53,7 +53,7 @@
             </div>
         </section>
     </main>
-    <footer class="row fixed-bottom"></footer>
+
     <script src="../../../Assets/Js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="main.js"></script>

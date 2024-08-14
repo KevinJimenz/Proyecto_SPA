@@ -56,10 +56,10 @@
                                         <h3 class="mb-1">Datos básicos</h3>
                                         <label class="text-secondary fs-5 ms-1 mb-1" for="nombres">Nombres*</label>
                                         <input type="text" class="form-control form-control-lg rounded-3 mb-1"
-                                            name="nombres" id="nombres" required>
+                                            name="nombre" id="nombre" required>
                                         <label class="text-secondary fs-5 ms-1 mb-1" for="nombres">Apellidos*</label>
                                         <input type="text" class="form-control form-control-lg rounded-3 mb-1"
-                                            name="apellidos" id="apellidos" required>
+                                            name="apellido" id="apellido" required>
                                         <label class="text-secondary fs-5 ms-1 mb-1" for="telefono">Teléfono*</label>
                                         <input type="tel" class="form-control form-control-lg rounded-3 mb-3"
                                             name="telefono" id="telefono" pattern="^[0-9]*$" required>
@@ -72,8 +72,12 @@
                                         <label class="text-secondary fs-5 ms-1 mb-1" for="password">Contraseña*</label>
                                         <input type="password" class="form-control form-control-lg rounded-3 mb-2"
                                             name="password" id="password" minlength="8" required>
-                                        <input type="password" class="form-control form-control-lg rounded-3 mb-1"
-                                            placeholder="Confirmar contraseña" id="confirmPass" minlength="8" required>
+                                        <div class="form-check text-black-50">
+                                            <input class="form-check-input" type="checkbox" id="showPass">
+                                            <label class="form-check-label" for="showPass">
+                                                Mostrar contraseña
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                                 <p class="pb-3 mb-0" id="lblErr"></p>
@@ -94,11 +98,16 @@
             <div class="container-fluid Social-Media pb-3"></div>
         </div>
     </main>
-    <footer class="row"></footer>
+    <script>
+    document.getElementById("showPass").addEventListener("change", () => {
+        var inpPass = document.getElementById("password");
+        inpPass.type == "password" ? inpPass.type = "text" : inpPass.type = "password";
+    });
+    </script>
+    <script type="module" src="./main.js"></script>
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true"></div>
-    <script src="../Assets/Js/bootstrap.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 </body>
 
 </html>

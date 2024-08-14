@@ -1,7 +1,7 @@
 import { SetModal, ShowModal } from './modal.js';
 //settings
 const GetHost = () => {
-    return window.location.origin + '/spa';
+    return window.location.origin + '/Proyecto_SPA';
 };
 const SetTitle = (title) => {
     document.title = 'Spa | ' + title;
@@ -30,7 +30,7 @@ const SetHeader = (selector) => {
     document.querySelector(selector).innerHTML = `
     <div class="col-auto mx-auto">
         <a class="logo-icon" href="${GetHost()}/Front/Views/Inicio/">
-            <img width="180px" src="${GetHost()}/Front/Views/Assets/Img/Spa_Logo.webp" alt="Spa_Logo">
+            <img width="120px" src="${GetHost()}/Front/Views/Assets/Img/Logo.png">
         </a>
     </div>
     `;

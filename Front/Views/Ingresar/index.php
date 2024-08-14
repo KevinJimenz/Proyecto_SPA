@@ -13,7 +13,7 @@
     <nav class="row bg-body shadow py-2 py-md-3 mb-5">
         <div class="col-auto mx-auto">
             <a class="logo-icon" href="./">
-                <img width="120px" class="img" src="../Assets/Img/Logo.png" alt="Spa_Logo.webp">
+                <img width="120px" class="img" src="../Assets/Img/Logo.png">
             </a>
         </div>
         <div class="col align-content-center">
@@ -47,7 +47,7 @@
                     <h1 class="display-6 fw-bold">¡Reserva Tu Momento de Relajación!</h1>
                     <p class="fw-light fs-5">Déjanos cuidar de ti. Completa el formulario y disfruta de una experiencia única.</p>
                 </div>
-                <form action="" method="post">
+                <form>
                     <div class="form-floating fs-5 py-1 mb-2">
                         <input type="email" class="form-control rounded-3" name="email" id="email" placeholder=""
                             required>
@@ -65,19 +65,21 @@
                         </label>
                     </div>
                     <p class="mb-0" id="lblErr"></p>
-                    <button class="btn btn-lg btn-select w-100 mt-4" type="submit" id="btnEntrar">
+                    <button class="btn btn-lg btn-select w-100 mt-4" type="button" id="btnEntrar">
                         Entrar
                     </button>
                 </form>
             </div>
         </div>
     </main>
+
     <script>
     document.getElementById("showPass").addEventListener("change", () => {
         var inpPass = document.getElementById("pass");
         inpPass.type == "password" ? inpPass.type = "text" : inpPass.type = "password";
     });
     </script>
+    <script src="./main.js"></script>
 </body>
 
 </html>

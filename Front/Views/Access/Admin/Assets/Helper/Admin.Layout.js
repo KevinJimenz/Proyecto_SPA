@@ -1,7 +1,8 @@
-import { GetHost, CreateCss, SetIcon, SetHeader, SetNavBar, SetSocialMedia, SetFooter } from '../../../../Assets/Js/globals.functions.js';
+import { GetHost, CreateCss, SetIcon, SetHeader, SetNavBar, SetSocialMedia, SetFooter, CreateScript } from '../../../../Assets/Js/globals.functions.js';
 import { SetAside } from '../../../Utils/asidebar.js';
 CreateCss(`${GetHost()}/Front/Views/Assets/Css/styles.css`);
-SetIcon(`${GetHost()}/Front/Views/Assets/Img/Spa_Logo.webp`);
+CreateScript(`${GetHost()}/Front/Views/Assets/Js/bootstrap.bundle.min.js`)
+SetIcon(`${GetHost()}/Front/Views/Assets/Img/Logo.png`);
 //SetHeader('header');
 //SetNavBar('nav');
 const jsonButtons = [
@@ -15,6 +16,5 @@ const jsonButtons = [
     { text: 'Productos', href: '/Front/Views/Access/Admin/Productos/', icon: 'bi-box-seam-fill' },
 ];
 SetAside(jsonButtons);
-SetFooter('footer');
 
 export default jsonButtons

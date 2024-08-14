@@ -42,7 +42,7 @@
             </div>
         </section>
     </main>
-    <footer class="row fixed-bottom"></footer>
+
     <script src="../../../Assets/Js/bootstrap.bundle.min.js"></script>
     <script src="../../Utils/vfs_fonts.js"></script>
     <script src="../../Utils/pdfmake.min.js"></script>

@@ -7,6 +7,15 @@ SetAsideActive('Citas');
 const inpFecha = document.getElementById('fecha');
 inpFecha.min = new Date().toISOString().split('T')[0];
 
+fetch(`${GetHost()}/Back/Controllers/clientes/controlador_id_nombre_cliente.php`)
+.then(response => response.json())
+    .then(data => {
+        FillSelect('idCliente', data);
+    })
+    .catch(err => {
+        SetCatchModal(err);
+    })
+
 fetch(`${GetHost()}/Back/Controllers/clientes/controlador_servicio_cliente.php`).then(response => response.json())
     .then(data => {
         FillSelect('idServicio', data);
@@ -14,6 +23,15 @@ fetch(`${GetHost()}/Back/Controllers/clientes/controlador_servicio_cliente.php`)
     .catch(err => {
         SetCatchModal(err);
     })
+
+fetch(`${GetHost()}/Back/Controllers/productos/select_Productos.php`)
+    .then(response => response.json())
+        .then(data => {
+            FillSelect('idProducto', data);
+        })
+        .catch(err => {
+            SetCatchModal(err);
+        })
 let btnReservar = document.getElementById('btnReservar');
 btnReservar.addEventListener('click', () => {
     if (ValidForm('frmReservar')) {

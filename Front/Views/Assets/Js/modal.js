@@ -1,4 +1,4 @@
-const SetModal = (title, body, footer) => {
+const SetModal = (title, body) => {
     document.getElementById('staticBackdrop').innerHTML = `
     <div class="modal-dialog">
         <div class="modal-content">
@@ -7,7 +7,6 @@ const SetModal = (title, body, footer) => {
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body fs-5">${body}</div>
-            <div class="modal-footer bg-body-secondary">${footer}</div>
         </div>
     </div>
     `;

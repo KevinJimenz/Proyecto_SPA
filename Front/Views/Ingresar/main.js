@@ -1,29 +1,11 @@
-import {
-  SetTitle,
-  ValidForm,
-  SetLoading,
-  SetError,
-} from "../Assets/Js/globals.functions.js";
-import jsonButtons from "../Access/Admin/Assets/Helper/Admin.Layout.js";
-import {} from "../Assets/Helper/layout.js";
-SetTitle("Ingresar");
-//objs
-let txtPass = document.getElementById("contraseña");
-const ckShowPass = document.getElementById("showPassword");
-const btnEntrar = document.getElementById("btnEntrar");
-//events
-ckShowPass.addEventListener("change", () => {
-  if (txtPass.type == "password") {
-    txtPass.type = "text";
-  } else {
-    txtPass.type = "password";
-  }
-});
-btnEntrar.addEventListener("click", () => {
+
+let btnEntrar = document.getElementById("btnEntrar");
+btnEntrar.addEventListener('click', () => {
   let form = document.querySelector("form");
   let formData = new FormData(form);
-  fetch(`../../../Back/Controllers/iniciarSesion/iniciarSesion.php`, {
-    method: "post",
+  console.log(formData)
+  fetch(`http://localhost/Proyecto_SPA/Back/Controllers/iniciarSesion/iniciarSesion.php`, {
+    method: "POST",
     body: formData
   })
     .then((response) => response.json())
@@ -31,9 +13,9 @@ btnEntrar.addEventListener("click", () => {
 
       if (data.message == "Existe") {
         // ? Con otro if se valida el id y de acuerdo a el se elige que botones se van usar
-        if(data.data[0].rol == 2)
+        if(data.data[0].rol == 1)
         {
-          console.log();
+          window.location.href = "../Access/Admin/Empleados";
         }
 
       } else {

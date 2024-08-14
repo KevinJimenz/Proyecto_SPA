@@ -12,7 +12,6 @@ const Columns = [
     'Apellidos',
     'Dirección',
     'Correo',
-    'Servicio',
     ''
 ];
 const btnNuevo = document.getElementById('btnNuevo');

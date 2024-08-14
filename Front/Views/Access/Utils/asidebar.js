@@ -1,4 +1,5 @@
-import { GetHost } from '../../Assets/Js/globals.functions.js';
+import { GetHost, CreateScript } from '../../Assets/Js/globals.functions.js';
+CreateScript(`${GetHost()}/Front/Views/Assets/Js/bootstrap.bundle.min.js`);
 function SetAsideActive(title) {
     var asideButtons = document.querySelectorAll('.nav-link.text-dark')
     asideButtons.forEach(item => {
@@ -13,18 +14,16 @@ const SetAside = (jsonButtons) => {
     asideBar.innerHTML = `
     <li class="nav-item border-bottom pb-0 pb-md-2">
         <div class="dropdown">
-            <button class="btn btn-lg bg-body-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-person-circle me-1"></i>
-                John Rivera
-            </button>
-            <ul class="dropdown-menu">
-                <li>
-                    <a class="dropdown-item text-danger" href="#">
-                        <i class="bi bi-box-arrow-right me-1"></i>
-                        Cerrar sesión
-                    </a>
-                </li>
-            </ul>
+            <button class="btn btn-lg bg-body-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                 <i class="bi bi-person-circle me-1"></i> Kevin
+             </button>
+         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li>
+                <a class="dropdown-item" href="logout.php">
+                    <i class="bi bi-box-arrow-right me-1"></i> Cerrar sesión
+                </a>
+            </li>
+         </ul>
         </div>
     </li>
     `;

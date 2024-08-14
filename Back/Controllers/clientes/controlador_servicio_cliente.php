@@ -2,7 +2,7 @@
 include('../../Model/conexion.php');
 
 $conexion = new Conexion();
-
+$conexion ->conectar();
 try {
     $consulta = "SELECT id, descripcion_servicio FROM servicios;";
     $clientes = $conexion->ConsultaCompleja($consulta);
