@@ -139,9 +139,17 @@ const SetCatchModal = (err) => {
         `<h5>${err}</h5>`,
         `<button type="button" class="btn btn-primary" id="btnReload">Aceptar</button`
     );
-    document.getElementById('btnReload').addEventListener('click', () => {
-        window.location.reload();
-    });
+    ShowModal();
+    setTimeout(() => {
+        const btnReload = document.getElementById('btnReload');
+        if (btnReload) {
+            btnReload.addEventListener('click', () => {
+                window.location.reload();
+            });
+        } else {
+            console.error("El botón 'btnReload' no se encontró en el DOM.");
+        }
+    }, 0);
 };
 function SetSucessModal(message) {
     SetModal(
@@ -156,9 +164,17 @@ function SetSucessModal(message) {
         <button type="button" class="btn btn-primary" id="btnReload">Aceptar</button>
         `
     );
-    document.getElementById('btnReload').addEventListener('click', () => {
-        window.location.reload();
-    })
+    ShowModal();
+    setTimeout(() => {
+        const btnReload = document.getElementById('btnReload');
+        if (btnReload) {
+            btnReload.addEventListener('click', () => {
+                window.location.reload();
+            });
+        } else {
+            console.error("El botón 'btnReload' no se encontró en el DOM.");
+        }
+    }, 0);
 };
 //functions
 const FillSelect = (id, json) => {
@@ -170,7 +186,23 @@ const FillSelect = (id, json) => {
             arrayValues.push(item[key]);
         });
         select.innerHTML += `
-        <option value="${arrayValues[0]}">${arrayValues[1]}</option>
+        <option value="${arrayValues[0]}">${arrayValues[1]} }</option>
+        `;
+    });
+};
+
+const FilldivCheckboxes = (id, json) => {
+    var contenedor = document.getElementById(id);
+    json.forEach(item => {
+        var arrayValues = [];
+        Object.keys(item).forEach(key => {
+            arrayValues.push(item[key]);
+        });
+        contenedor.innerHTML += `
+        <div style="width: 50%; display: flex; gap: 15px;">
+        <input type="checkbox" name="servicio[]" value ="${arrayValues[0]}">  
+            <label> ${arrayValues[1]} - <strong> ${arrayValues[2]} </strong></label>
+        </div>
         `;
     });
 };
@@ -223,5 +255,6 @@ export {
     SetSelectOpt,
     ValidForm,
     ConfirmPass,
-    SetLoading
+    SetLoading,
+    FilldivCheckboxes
 };

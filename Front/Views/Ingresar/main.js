@@ -4,7 +4,6 @@ let btnEntrar = document.getElementById("btnEntrar");
 btnEntrar.addEventListener('click', () => {
   let form = document.querySelector("form");
   let formData = new FormData(form);
-  console.log(formData)
   fetch(`http://localhost/Proyecto_SPA/Back/Controllers/iniciarSesion/iniciarSesion.php`, {
     method: "POST",
     body: formData

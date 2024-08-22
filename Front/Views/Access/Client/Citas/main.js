@@ -1,71 +1,74 @@
-import { GetHost, SetTitle, SetCatchModal, SetLoading, ValidForm, SetSucessModal, FillSelect } from '../../../Assets/Js/globals.functions.js';
-import { } from '../Assets/Helper/Client.Layout.js';
-import { SetAsideActive } from '../../Utils/asidebar.js';
-import { ShowModal } from '../../../Assets/Js/modal.js';
-SetTitle('Citas');
-SetAsideActive('Citas');
-const inpFecha = document.getElementById('fecha');
-inpFecha.min = new Date().toISOString().split('T')[0];
+import {
+  GetHost,
+  SetTitle,
+  SetCatchModal,
+  SetLoading,
+  ValidForm,
+  SetSucessModal,
+  FillSelect,
+  FilldivCheckboxes
+} from "../../../Assets/Js/globals.functions.js";
+import {} from "../Assets/Helper/Client.Layout.js";
+import { SetAsideActive } from "../../Utils/asidebar.js";
+SetTitle("Citas");
+SetAsideActive("Citas");
+const inpFecha = document.getElementById("fecha");
+inpFecha.min = new Date().toISOString().split("T")[0];
 
-fetch(`${GetHost()}/Back/Controllers/clientes/controlador_id_nombre_cliente.php`)
-.then(response => response.json())
-    .then(data => {
-        FillSelect('idCliente', data);
-    })
-    .catch(err => {
-        SetCatchModal(err);
-    })
+fetch(
+  `${GetHost()}/Back/Controllers/clientes/controlador_id_nombre_cliente.php`
+)
+  .then((response) => response.json())
+  .then((data) => {
+    FillSelect("idCliente", data);
+  })
+  .catch((err) => {
+    SetCatchModal(err);
+  });
 
-fetch(`${GetHost()}/Back/Controllers/clientes/controlador_servicio_cliente.php`).then(response => response.json())
-    .then(data => {
-        FillSelect('idServicio', data);
-    })
-    .catch(err => {
-        SetCatchModal(err);
-    })
+fetch(`${GetHost()}/Back/Controllers/clientes/controlador_servicio_cliente.php`)
+  .then((response) => response.json())
+  .then((data) => {
+    FilldivCheckboxes("Servicios", data);
+  })
+  .catch((err) => {
+    SetCatchModal(err);
+  });
 
-fetch(`${GetHost()}/Back/Controllers/productos/select_Productos.php`)
-    .then(response => response.json())
-        .then(data => {
-            FillSelect('idProducto', data);
-        })
-        .catch(err => {
-            SetCatchModal(err);
-        })
-let btnReservar = document.getElementById('btnReservar');
-btnReservar.addEventListener('click', () => {
-    if (ValidForm('frmReservar')) {
-        SetLoading(btnReservar);
-        var formData = new FormData(document.getElementById('frmReservar'));
-        formData.append('id_Cliente', window.localStorage.getItem('idUser'))
-        var object = {};
-        formData.forEach((value, key) => {
-            object[key] = value;
-        });
-        //Set controller and send data for body
-        $.ajax({
-            url: `${GetHost()}/Back/Controllers/ReservaCitas/controlador_insertar_cita.php`,
-            type: 'POST',
-            data: object,
-            success: function (data) {
-                $.ajax({
-                    url: `${GetHost()}/Back/Controllers/ReservaCitas/controlador_insertar_cita.php`,
-                    type: 'POST',
-                    data: object,
-                    success: function (data) {
-                        SetSucessModal(data);
-                    },
-                    error: function (err) {
-                        SetCatchModal(err);
-                        ShowModal();
-                    }
-                });
-            },
-            error: function (err) {
-                SetCatchModal(err);
-                ShowModal();
-            }
-        });
-        btnReservar.innerHTML = 'Reservar';
-    };
+
+let btnReservar = document.getElementById("btnReservar");
+btnReservar.addEventListener("click", () => {
+  SetLoading(btnReservar);
+  var formData = new FormData(document.querySelector('form'));
+  // Valido si tiene todos los campos llenos
+  let itemCount = 0;
+
+  for (let item of formData.entries()) {
+      itemCount++;
+  }
+
+  if (itemCount >= 4)
+  {
+    fetch(`${GetHost()}/Back/Controllers/ReservaCitas/controlador_insertar_cita.php`, {
+      method: 'POST',
+      body: formData
+    })
+    .then((response) => {
+      return response.json() ;
+    })
+    .then((data)=> {
+        if (data.access == true)
+        {
+          SetSucessModal(data.message)
+        }
+        else{
+          SetCatchModal(data.message)
+        }
+    })
+  }
+  else
+  {
+    SetCatchModal('Tienes que llenar todos los campos del formulario.')
+  }
+
 });

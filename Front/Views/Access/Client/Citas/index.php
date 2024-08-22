@@ -30,10 +30,7 @@
                                 </a>
                             </div>
                             <div class="col-auto align-content-center">
-                                <a class="nav-link link-dark text-center fs-5 p-2"
-                                    href="http://localhost/proyecto_Spa/index.php">
-                                    Inicio
-                                </a>
+                            <h4 class="mt-1 mb-0 fw-normal mb-1" style ="color : black; text-align: center">Relájate ,Tu bienestar empieza aquí.. Reserva  tu Cita!!!</h4>
                             </div>
                             <div class="col col-md-auto ms-auto align-content-center mt-2 mt-md-0">
                                 <li class="nav-item pb-0 pb-md-2" style="list-style-type: none;">
@@ -62,11 +59,11 @@
     <main class="row mb-5 mb-md-0" >
         <section class="col px-3 px-md-5 " >
             <div class="row mb-2 d-flex justify-content-center align-content-center" style="background-image: url('../../../Assets/Img/Spa_login.webp'); border-radius: 20px;  background-size: cover; background-position: center;  min-height: 88vh;">
-                <h4 class="mt-1 mb-0 fw-normal mb-1" style ="color : black; text-align: center">Relájate ,Tu bienestar empieza aquí..</h4>
-                <h2 class="fw-bold mb-3 mt-3" style ="color : black; text-align: center">Reservar Cita</h2>
-                <div class="col col-md-6">
+                <h4 class="mt-1 mb-0 fw-normal mb-1" style ="color : black; text-align: center"></h4>
+                <h2 class="fw-bold mb-3 mt-3" style ="color : black; text-align: center"></h2>
+                <div class="col col-md-7">
                     <div class="bg-body rounded-3 p-3 p-md-4 shadow-sm">
-                        <form id="frmReservar">
+                        <form>
                             <div class="row">
                                 <div class="col mb-2">
                                     <label class="fs-5 ms-1 mb-1 text-black-50" for="fecha">Fecha</label>
@@ -76,11 +73,7 @@
                             <div class="row row-cols-1 row-cols-md-2">
                                 <div class="col mb-2">
                                     <label class="fs-5 ms-1 mb-1 text-black-50" for="horaInicio">Hora de Inicio</label>
-                                    <input class="form-control" type="time" name="hora_Inicio" id="horaInicio" required>
-                                </div>
-                                <div class="col mb-2">
-                                    <label class="fs-5 ms-1 mb-1 text-black-50" for="horaFin">Hora de Fin</label>
-                                    <input class="form-control" type="time" name="hora_Fin" id="horaFin" required>
+                                    <input class="form-control" type="time" name="hora_Inicio" id="horaInicio" required >
                                 </div>
                             </div>
                             <div class="row">
@@ -92,19 +85,11 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col mb-2">
-                                    <label class="fs-5 ms-1 mb-1 text-black-50" for="idServicio">Servicio</label>
-                                    <select class="form-select" name="id_Servicio" id="idServicio" required>
-                                        <option value="">Seleccionar...</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col mb-4">
-                                    <label class="fs-5 ms-1 mb-1 text-black-50" for="idProducto">Producto</label>
-                                    <select class="form-select" name="id_Producto" id="idProducto" required>
-                                        <option value="">Seleccionar...</option>
-                                    </select>
+                                <div class="col-12 mb-2">
+                                    <label class="fs-5 ms-1 mb-1 text-black-50" >Servicios y Terapeutas</label>
+                                    <div id="Servicios" style="display: flex; flex-wrap: wrap" name="servicios">
+                                       
+                                    </div>
                                 </div>
                             </div>
                             <p class="mb-0" id="lblErr"></p>
@@ -119,7 +104,8 @@
     </main>
     <script type="module" src="main.js"></script>
     <script src="../../../Assets/Js/bootstrap.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true"></div>
 </body>
 
 </html>
