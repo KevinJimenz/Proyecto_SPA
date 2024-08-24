@@ -39,7 +39,6 @@
             $stmt->bindParam(':password', $passwordEncriptada, PDO::PARAM_STR);
             $stmt -> execute();
             $mensaje= array (
-                'Title' => '¡¡¡Felicidades!!!',
                 'message' => 'El usuario '.$nombre.' '.$apellido. ' fue agregado correctamente.' 
             );
             $mensaje_Validado = json_encode($mensaje);

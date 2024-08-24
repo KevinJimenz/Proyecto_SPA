@@ -1,4 +1,4 @@
-import { SetTitle, SetError, GetHost } from '../Assets/Js/globals.functions.js';
+import { SetTitle, SetError, GetHost, SetSucessModal } from '../Assets/Js/globals.functions.js';
 import {} from '../Assets/Helper/layout.js';
 import { SetModal, ShowModal } from '../Assets/Js/modal.js';
 SetTitle('Registrarse');
@@ -20,8 +20,7 @@ btnRegistrarme.addEventListener('click', ()=>{
         return response.json();
     })
     .then((data)=>{
-        SetModal(data.Title,data.message);
-        ShowModal();
+        SetSucessModal(data.message);
         nombre_Completo.value="";
         telefono.value="";
         correo.value="";
