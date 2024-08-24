@@ -97,24 +97,11 @@ const setDataTable = (URL, btnContent, innerHTML, idTable) => {
 //*
 //* AQUÍ EMPIEZAN LOS ENDPOINTS
 //*
-setDataTable(`${GetHost()}`, 'Ingresos Generados', `
-<table class="table table-light table-hover fs-5 w-100 mb-0" id="dtIngresosTiempo">
-    <thead>
-        <tr>
-            <th>Dia</th>
-            <th>Mes</th>
-            <th>Año</th>
-            <th>Ingreso</th>
-        </tr>
-    </thead>
-    <tbody></tbody>
-</table>
-`, 'dtIngresosTiempo');
 navLinks.forEach(item => {
     item.addEventListener('click', () => {
         switch (item.textContent.trim()) {
             case 'Ingresos Generados':
-                setDataTable(`${GetHost()}`, 'Ingresos Generados', `
+                setDataTable(`${GetHost()}/Back/Controllers/reportes/controlador_reportes_ingresos.php`, 'Ingresos Generados', `
                 <table class="table table-light table-hover fs-5 w-100 mb-0" id="dtIngresosTiempo">
                     <thead>
                         <tr>
@@ -162,7 +149,7 @@ navLinks.forEach(item => {
                 `, 'dtClientesFrecuentes');
                 break;
             case 'Consumo Productos':
-                setDataTable(`${GetHost()}`, 'Consumo Productos', `
+                setDataTable(`${GetHost()}/Back/Controllers/reportes/controlador_reportes_productos.php`, 'Consumo Productos', `
                 <table class="table table-light table-hover fs-5 w-100 mb-0" id="dtInventarioConsumo">
                     <thead>
                         <tr>

@@ -24,7 +24,6 @@ $.ajax({
     success: function (data) {
         FillTable(dataTable, data, 'ambos');
         new DataTable('#dataTable', DefaultOptions('productos', Columns.length - 1));
-        SetSucessModal(data);
         SetButtons();
     },
     error: function (err) {

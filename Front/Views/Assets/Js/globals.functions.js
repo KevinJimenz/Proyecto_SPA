@@ -186,7 +186,7 @@ const FillSelect = (id, json) => {
             arrayValues.push(item[key]);
         });
         select.innerHTML += `
-        <option value="${arrayValues[0]}">${arrayValues[1]} }</option>
+        <option value="${arrayValues[0]}">${arrayValues[1]}</option>
         `;
     });
 };

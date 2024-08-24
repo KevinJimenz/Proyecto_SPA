@@ -49,11 +49,14 @@
             </div>
         </section>
     </main>
-
+        
     <script src="../../../Assets/Js/bootstrap.bundle.min.js"></script>
     <script src="../../Utils/vfs_fonts.js"></script>
     <script src="../../Utils/pdfmake.min.js"></script>
     <script src="../../Utils/datatables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+
     <script type="module" src="main.js"></script>
 </body>
 

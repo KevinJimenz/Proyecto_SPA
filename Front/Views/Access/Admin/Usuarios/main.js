@@ -11,6 +11,7 @@ const Columns = [
     'Nombre',
     'Apellidos',
     'Correo',
+    'Telefono',
     'Rol',
     ''
 ];
@@ -180,9 +181,21 @@ btnNuevo.addEventListener('click', () => {
                         </div>
                     </div>
                 </div>
+                <div class="col">
+                    <div class="row row-cols-1 row-cols-md-2">
+                        <div class="col mb-2">
+                            <label class="ms-1 mb-1 text-black-50" for="correo">Correo</label>
+                            <input class="form-control" type="email" name="correo" id="correo" required>
+                        </div>
+                        <div class="col mb-2">
+                            <label class="ms-1 mb-1 text-black-50" for="correo">Telefono</label>
+                            <input class="form-control" type="text" name="telefono" id="telefono"  required>
+                        </div>
+                    </div>
+                </div>
                 <div class="col mb-2">
-                    <label class="ms-1 mb-1 text-black-50" for="correo">Correo</label>
-                    <input class="form-control" type="email" name="correo" id="correo" required>
+                    <label class="ms-1 mb-1 text-black-50" for="correo">Contraseña</label>
+                    <input class="form-control" type="text" name="pass" id="pass" required>
                 </div>
                 <div class="col">
                     <label class="ms-1 mb-1 text-black-50" for="idRol">Rol</label>
@@ -198,27 +211,29 @@ btnNuevo.addEventListener('click', () => {
     );
     FillSelect('idRol', arrayRoles);
     ShowModal();
+    document.getElementById('telefono').addEventListener('input', function (e) {
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
     var btnGuardar = document.getElementById('btnGuardar');
     btnGuardar.addEventListener('click', () => {
         if (ValidForm('frmNuevo')) {
             SetLoading(btnGuardar);
             var formData = new FormData(document.getElementById('frmNuevo'));
-            var object = {};
-            formData.forEach((value, key) => {
-                object[key] = value;
-            });
-            //Set controller and send data for body
-            $.ajax({
-                url: `${GetHost()}/Back/Controllers/spaEmpelados/usuarios/controlador_insertar_usuario.php`,
-                type: 'POST',
-                data: object,
-                success: function (data) {
-                    SetSucessModal(data);
-                },
-                error: function (err) {
-                    SetCatchModal(err);
+            fetch(`${GetHost()}/Back/Controllers/spaEmpelados/usuarios/controlador_insertar_usuario.php`,{
+                method: 'POST',
+                body: formData,
+            })
+            .then((response)=>response.json())
+            .then((data)=>{
+                if(data.access == true)
+                {
+                    SetSucessModal(data.message);
                 }
-            });
+                else
+                {
+                    SetCatchModal(data.message);
+                }
+            })
         };
     });
 });
